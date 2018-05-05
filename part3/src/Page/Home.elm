@@ -29,7 +29,7 @@ update msg model =
 
                { model | foo = bar }
         -}
-        model
+        { model | selectedTag = msg.data }
     else
         model
 
@@ -70,7 +70,7 @@ viewTag selectedTagName tagName =
            current tagName is equal to the selected one.
         -}
         classname =
-            if False then
+            if selectedTagName == tagName then
                 "tag-pill tag-selected"
             else
                 "tag-pill tag-default"
@@ -88,6 +88,7 @@ viewTag selectedTagName tagName =
     -}
     button
         [ class classname
+        , onClick { operation = "SELECT_TAG", data = tagName }
         ]
         [ text tagName ]
 

@@ -111,6 +111,7 @@ viewForm model =
                 -}
                 [ class "form-control-lg"
                 , placeholder "Article Title"
+                , onInput ArticleTitle
                 , value model.title
                 ]
                 []
@@ -145,6 +146,7 @@ viewForm model =
 
 type Msg
     = Save
+    | ArticleTitle String
     | SetDescription String
     | SetBody String
     | SetTags String
@@ -181,6 +183,9 @@ update user msg model =
         --  HINT: take a look at how SetDescription does something similar!   --
         --                                                                    --
         ------------------------------------------------------------------------
+        ArticleTitle title ->
+            ( { model | title = title }, Cmd.none )
+
         SetDescription description ->
             ( { model | description = description }, Cmd.none )
 

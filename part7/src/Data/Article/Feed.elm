@@ -39,5 +39,5 @@ decoder =
 
               Once this works, there's another TODO in src/Data/Article/Author.elm
         -}
-        |> hardcoded []
+        |> required "articles" articlesDecoder
         |> required "articlesCount" Decode.int

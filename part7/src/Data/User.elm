@@ -28,8 +28,7 @@ decoder =
     decode User
         |> required "email" Decode.string
         |> required "token" AuthToken.decoder
-        -- |> required "username" usernameDecoder
-        |> hardcoded "TODO we should decode the username field as a string"
+        |> required "username" usernameDecoder
         |> required "bio" (Decode.nullable Decode.string)
         |> required "image" UserPhoto.decoder
 

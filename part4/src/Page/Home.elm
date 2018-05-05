@@ -29,6 +29,7 @@ type alias Model =
 
 {-| TODO add a type annotation to initialModel
 -}
+initialModel : Model
 initialModel =
     { tags = [ "foo", "bar", "dragons" ]
     , selectedTag = ""
@@ -51,6 +52,7 @@ viewBanner =
 
 {-| TODO add a type annotation to view
 -}
+view : Model -> Html Msg
 view model =
     div [ class "home-page" ]
         [ viewBanner
@@ -74,6 +76,7 @@ view model =
 
 {-| TODO add a type annotation to viewTag
 -}
+viewTag : String -> String -> Html Msg
 viewTag selectedTagName tagName =
     let
         classname =
@@ -95,6 +98,7 @@ viewTag selectedTagName tagName =
 
 {-| TODO add a type annotation to update
 -}
+update : Msg -> Model -> Model
 update msg model =
     if msg.operation == "SELECT_TAG" then
         { model | selectedTag = msg.data }

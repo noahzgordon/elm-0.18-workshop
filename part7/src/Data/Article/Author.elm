@@ -9,7 +9,7 @@ import Json.Decode.Pipeline exposing (custom, decode, hardcoded, optional, requi
 decoder : Decoder Author
 decoder =
     decode Author
-        |> hardcoded "TODO we should decode the username field as a string"
+        |> required "username" Decode.string
         |> required "bio" (Decode.nullable Decode.string)
         |> required "image" UserPhoto.decoder
         |> optional "following" Decode.bool False

@@ -15,7 +15,7 @@ view tags =
                         [ p [] [ text "Popular Tags" ]
 
                         -- TODO instead of passing [] to viewTags, pass the actual tags
-                        , viewTags []
+                        , viewTags tags
                         ]
                     ]
                 ]
@@ -27,7 +27,7 @@ viewTags tags =
     let
         renderedTags =
             -- TODO use `List.map` and `viewTag` to render the tags
-            []
+            List.map viewTag [ "hi", "hi2", "hi3" ]
     in
     div [ class "tag-list" ] renderedTags
 
@@ -37,7 +37,7 @@ viewTag tagName =
 
        <button class="tag-pill tag-default">tag name goes here</button>
     -}
-    button [] []
+    button [ class "tag-pill tag-default" ] [ text tagName ]
 
 
 viewBanner =
